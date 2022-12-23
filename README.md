@@ -14,7 +14,7 @@ Interested in following this project? Join the Discord! https://discord.gg/R3VDr
 ## Roadmap
 
 - [x] Initial Phaser js setup
-- [ ] Initial multiplayer setup
+- [x] Initial multiplayer setup
 - [ ] Setup PostgreSQL DB + `users` table created
 - [ ] Login / registration system
 - [ ] Gameplay
