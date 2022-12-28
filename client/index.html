@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stick Fight Club</title>
+  <style>
+    body {
+      background-color: #314359;
+    }
+
+    canvas {
+      margin-top: 25px;
+      margin-right: auto;
+      margin-left: auto;
+      display: block;
+      border: 15px solid #202c3a;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="canvas" width="960" height="720" style="background-color: #000"></canvas>
+
+  <script src="/socket.io/socket.io.js"></script>
+
+  <script src="./js/utils/Constants.js"></script>
+  <script src="./js/utils/Physics.js"></script>
+
+  <script src="./js/spritesheet/Spritesheet.js"></script>
+  <script src="./js/builder/SpritesheetBuilder.js"></script>
+  <script src="./js/manager/SpritesheetManager.js"></script>
+
+  <script src="./js/entity/GameObject.js"></script>
+  <script src="./js/builder/GameObjectBuilder.js"></script>
+
+  <script src="./js/entity/Player.js"></script>
+  <script src="./js/builder/PlayerBuilder.js"></script>
+  <script src="./js/manager/PlayerManager.js"></script>
+
+  <script src="./js/input/Keyboard.js"></script>
+  <script src="./js/input/Mouse.js"></script>
+
+  <script src="./js/manager/SocketManager.js"></script>
+  <script src="./js/handler/PlayerHandler.js"></script>
+  <script src="./js/game.js"></script>
+</body>
+
+</html>

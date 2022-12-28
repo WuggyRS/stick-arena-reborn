@@ -1,6 +1,7 @@
 class Player {
   constructor() {
     this.position = null;
+    this.health = 100;
   }
 }
 
