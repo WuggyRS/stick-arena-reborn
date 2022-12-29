@@ -1,6 +1,6 @@
 class Constants {
   static get SPEED() {
-    return 1.5;
+    return 1.375;
   }
 
   static get STICK_FIGURE_HEAD_RADIUS() {
