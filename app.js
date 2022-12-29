@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const app = express();
@@ -85,6 +86,6 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(1138, () => {
+server.listen(process.env.PORT || 1138, () => {
   console.log(`Listening on ${server.address().port}`);
 });
