@@ -44,3 +44,6 @@ Interested in following this project? Join the Discord! https://discord.gg/R3VDr
 - [ ] Game mode: Team Deathmatch
 - [ ] Game mode: PvE / Zombies
 - [ ] Game mode: Wager matches
+
+## Copyright
+The assets used in this project belong to XGenStudios. This project is for educational purposes only.
