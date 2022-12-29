@@ -27,6 +27,7 @@ function loop() {
 
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
+document.addEventListener("blur", onBlurHandler)
 canvas.addEventListener("mousemove", mouseMoveHandler, false);
 canvas.addEventListener("mousedown", onMouseDown);
 

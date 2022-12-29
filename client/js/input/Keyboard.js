@@ -14,6 +14,8 @@ function keyDownHandler(event) {
     keys.s = true;
   } else if (event.key == "d") {
     keys.d = true;
+  } else if (event.key == "Tab") {
+    event.preventDefault();
   }
 }
 
@@ -27,6 +29,15 @@ function keyUpHandler(event) {
   } else if (event.key == "d") {
     keys.d = false;
   }
+}
+
+function onBlurHandler() {
+  keys = {
+    w: false,
+    a: false,
+    s: false,
+    d: false
+  };
 }
 
 function keyEvents() {
