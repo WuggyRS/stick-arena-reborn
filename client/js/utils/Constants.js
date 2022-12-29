@@ -79,6 +79,39 @@ class Constants {
         fps: 45,
         numberOfFrames: 35,
         spriteCenter: { x: 7, y: 27 }
+      },
+      "heartbeat-healthy": {
+        spritesheetUrl: "sprites/player/heartbeat-healthy.png",
+        width: 27,
+        height: 22,
+        fps: 28,
+        numberOfFrames: 28,
+        spriteCenter: {
+          x: 13,
+          y: 11
+        }
+      },
+      "heartbeat-impacted": {
+        spritesheetUrl: "sprites/player/heartbeat-impacted.png",
+        width: 27,
+        height: 36,
+        fps: 36,
+        numberOfFrames: 36,
+        spriteCenter: {
+          x: 13,
+          y: 22
+        }
+      },
+      "heartbeat-critical": {
+        spritesheetUrl: "sprites/player/heartbeat-critical.png",
+        width: 35,
+        height: 36,
+        fps: 64,
+        numberOfFrames: 64,
+        spriteCenter: {
+          x: 17,
+          y: 20
+        }
       }
     };
   }

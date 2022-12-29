@@ -21,6 +21,8 @@ class PlayerManager {
       .build();
     this.mainPlayer.isMainPlayer = true;
 
+    this.mainPlayer.healthbarHeart.isVisible = true;
+
     socketManager.emit("playerMoved", { x: x, y: y });
   }
 

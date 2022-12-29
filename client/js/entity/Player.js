@@ -39,6 +39,13 @@ class Player {
       .withRepeatTimes(1)
       .build();
 
+    this.healthbarHeart = new GameObjectBuilder()
+      .withSpritesheetName("heartbeat-healthy")
+      .withX(30)
+      .withY(15)
+      .withIsVisible(false)
+      .build();
+
     this.body.addEventListener("animationcomplete", (data) => {
       const animationName = data.name;
 
@@ -50,6 +57,7 @@ class Player {
         this.deathSoul.isVisible = false;
 
         if (this.isMainPlayer) {
+          this.healthbarHeart.swapSpritesheet("heartbeat-healthy");
           this.respawn();
         }
       } else if (animationName === "glock-shoot") {
@@ -178,6 +186,7 @@ class Player {
   }
 
   death() {
+    this.health = 0;
     this.body.swapSpritesheet("death", 1);
     this.isRespawning = true;
     this.canShoot = false;
@@ -201,6 +210,37 @@ class Player {
     this.hitsplat.isVisible = true;
     this.hitsplat.setPosition(this.body.x, this.body.y);
     this.hitsplat.resetAnimationRepeat(1);
+    this.health -= 20;
+
+    if (this.isMainPlayer) {
+      if (this.health >= 75 && this.healthbarHeart.spritesheetData.spritesheetName !== "heartbeat-healthy") {
+        this.healthbarHeart.swapSpritesheet("heartbeat-healthy");
+      } else if (this.health > 20 && this.healthbarHeart.spritesheetData.spritesheetName !== "heartbeat-impacted") {
+        this.healthbarHeart.swapSpritesheet("heartbeat-impacted");
+      } else if (this.health <= 20 && this.healthbarHeart.spritesheetData.spritesheetName !== "heartbeat-critical") {
+        this.healthbarHeart.swapSpritesheet("heartbeat-critical");
+      }
+    }
+  }
+
+  drawHealthBar(ctx) {
+    let x = 50;
+    let y = 5;
+    const width = 100;
+    const height = 20;
+    const health = this.health;
+
+    // Draw the heart
+    this.healthbarHeart.draw(ctx);
+
+    // Draw health bar
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.fillStyle = 'red';
+    ctx.fillRect(0, 0, health, height);
+    ctx.fillStyle = 'black';
+    ctx.fillRect(health, 0, width - health, height);
+    ctx.restore();
   }
 
   update() {
@@ -208,6 +248,7 @@ class Player {
     this.body.update();
     this.hitsplat.update();
     this.deathSoul.update();
+    this.healthbarHeart.update();
 
     const currentPosition = this.getPosition();
     if (this.isPositionChanged(currentPosition) && this.isMainPlayer) {
@@ -240,6 +281,10 @@ class Player {
     this.hitsplat.draw(ctx);
     if (this.isRespawning) {
       this.deathSoul.draw(ctx);
+    }
+
+    if (this.isMainPlayer) {
+      this.drawHealthBar(ctx);
     }
   }
 }
