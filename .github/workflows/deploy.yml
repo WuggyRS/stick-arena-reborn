@@ -8,6 +8,9 @@ jobs:
   build:
     runs-on: self-hosted
 
+    env:
+      PORT: 80
+
     strategy:
       matrix:
         node-version: [19.x]
