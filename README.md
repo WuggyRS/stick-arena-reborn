@@ -3,18 +3,17 @@ A HTML5 remake of the Flash game Stick Arena
 
 Interested in following this project? Join the Discord! https://discord.gg/R3VDrpVnX9
 
-## Media
+## Demo
 
-#### Animations
-![Demo](https://user-images.githubusercontent.com/52111974/209248299-059d8f04-e35c-4aae-a4a3-2c504b634890.gif)
-
-#### Multiplayer
-![Multiplayer](https://user-images.githubusercontent.com/46038298/209293806-513930e8-4bf0-48ec-b7d6-cd86f636fe82.gif)
+![Multiplayer](https://user-images.githubusercontent.com/52111974/210126083-f428a5f3-af09-41e9-b52f-372e33c34777.gif)
 
 ## Roadmap
 
 - [x] Initial HTML5 Canvas setup
 - [x] Initial multiplayer setup
+- [ ] Camera that follows the player
+- [ ] Larger maps
+- [ ] Make the game logic server-sided
 - [ ] Setup PostgreSQL DB + `users` table created
 - [ ] Login / registration system
 - [ ] Gameplay
@@ -22,12 +21,22 @@ Interested in following this project? Join the Discord! https://discord.gg/R3VDr
   - [ ] Camera follows the player
 - [ ] Combat system
   - [ ] Picking up weapons from the ground
-  - [ ] Collision detection
-  - [ ] Hitpoints
-    - [ ] Death animations
-  - [ ] Weapon: Pistol
+  - [x] Collision detection
+  - [x] Hitpoints
+    - [x] Death animations
+  - [ ] Weapon: Fists
+  - [x] Weapon: Glock
+  - [ ] Weapon: Bat
   - [ ] Weapon: AK-47
-  - [ ] Weapon: Lightsaber
+  - [ ] Weapon: Shotgun
+  - [ ] Weapon: Sledgehammer
+  - [ ] Weapon: Katana
+  - [ ] Weapon: Laser Sword
+  - [ ] Weapon: Chainsaw
+  - [ ] Weapon: Tesla Helmet
+  - [ ] Weapon: Chaingun
+  - [ ] Weapon: Flamethrower
+  - [ ] Weapon: Rail Gun
 - [ ] Game logic
   - [ ] Battle room creation
   - [ ] 10 minute timer for the room
@@ -37,6 +46,7 @@ Interested in following this project? Join the Discord! https://discord.gg/R3VDr
     - This will likely mean that there needs to be support for unregistered users
   - [ ] Player disconnections in the middle of a game
     - Ideally there should be a system in place to discourage this from happening
+- [ ] Creds
 - [ ] Security: Validate bounds of player positions
 - [ ] Cosmetic: Spinners
 - [ ] Cosmetic: Pets
