@@ -20,8 +20,12 @@ class PlayerManager {
       .withY(y)
       .build();
     this.mainPlayer.isMainPlayer = true;
-
-    this.mainPlayer.healthbarHeart.isVisible = true;
+    this.mainPlayer.healthbarHeart = new GameObjectBuilder()
+      .withSpritesheetName("heartbeat-healthy")
+      .withX(30)
+      .withY(25)
+      .withIsVisible(true)
+      .build();
 
     socketManager.emit("playerMoved", { x: x, y: y });
   }
@@ -44,6 +48,7 @@ class PlayerManager {
 
   updatePlayers() {
     this.mainPlayer.update();
+    camera.setPos(this.mainPlayer.body);
 
     for (const id in this.players) {
       this.players[id].update();

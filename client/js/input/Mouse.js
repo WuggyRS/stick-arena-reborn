@@ -1,10 +1,10 @@
 function mouseMoveHandler(event) {
   if (playerManager.mainPlayer.isRespawning) return;
 
-  const mouseX = event.offsetX;
-  const mouseY = event.offsetY;
+  const mouseX = event.offsetX - canvas.width / 2;
+  const mouseY = event.offsetY - canvas.height / 2;
 
-  const spriteRotation = Math.atan2(mouseY - playerManager.mainPlayer.body.y, mouseX - playerManager.mainPlayer.body.x) + (90 * Constants.TO_RADIANS);
+  const spriteRotation = Math.atan2(mouseY, mouseX) + (90 * Constants.TO_RADIANS);
   playerManager.mainPlayer.body.setRotation(spriteRotation);
 }
 

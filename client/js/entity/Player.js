@@ -39,13 +39,6 @@ class Player {
       .withRepeatTimes(1)
       .build();
 
-    this.healthbarHeart = new GameObjectBuilder()
-      .withSpritesheetName("heartbeat-healthy")
-      .withX(30)
-      .withY(15)
-      .withIsVisible(false)
-      .build();
-
     this.body.addEventListener("animationcomplete", (data) => {
       const animationName = data.name;
 
@@ -223,32 +216,15 @@ class Player {
     }
   }
 
-  drawHealthBar(ctx) {
-    let x = 50;
-    let y = 5;
-    const width = 100;
-    const height = 20;
-    const health = this.health;
-
-    // Draw the heart
-    this.healthbarHeart.draw(ctx);
-
-    // Draw health bar
-    ctx.save();
-    ctx.translate(x, y);
-    ctx.fillStyle = 'red';
-    ctx.fillRect(0, 0, health, height);
-    ctx.fillStyle = 'black';
-    ctx.fillRect(health, 0, width - health, height);
-    ctx.restore();
-  }
-
   update() {
     this.legs.update();
     this.body.update();
     this.hitsplat.update();
     this.deathSoul.update();
-    this.healthbarHeart.update();
+
+    if (this.isMainPlayer) {
+      this.healthbarHeart.update();
+    }
 
     const currentPosition = this.getPosition();
     if (this.isPositionChanged(currentPosition) && this.isMainPlayer) {
@@ -258,21 +234,6 @@ class Player {
   }
 
   draw(ctx) {
-    if (Constants.DEBUG && this.isMainPlayer) {
-      let textY = 35;
-      ctx.beginPath();
-      ctx.rect(5, 10, 160, 86);
-      ctx.arc(500, 500, Constants.STICK_FIGURE_HEAD_RADIUS, 0, 2 * Math.PI);
-      ctx.fillStyle = 'black';
-      ctx.fill();
-      ctx.strokeStyle = 'black';
-      ctx.stroke();
-      ctx.fillStyle = 'green';
-      ctx.fillText(`Coordinates: (${this.body.x}, ${this.body.y})`, 10, textY);
-      ctx.fillText(`Rotation: ${this.body.rotation}`, 10, textY += 15);
-      ctx.closePath();
-    }
-
     // If the player can't move then that means they're in motion
     if (!this.canMove) {
       this.legs.draw(ctx);
@@ -281,10 +242,6 @@ class Player {
     this.hitsplat.draw(ctx);
     if (this.isRespawning) {
       this.deathSoul.draw(ctx);
-    }
-
-    if (this.isMainPlayer) {
-      this.drawHealthBar(ctx);
     }
   }
 }
