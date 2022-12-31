@@ -33,7 +33,7 @@ class GameObject {
   }
 
   resetAnimationRepeat(numTimes) {
-    this.frameIndex = 0;
+    this.frameIndex = -1;
     this.repeatTimes = numTimes;
   }
 
