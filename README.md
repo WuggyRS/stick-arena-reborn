@@ -11,17 +11,20 @@ Interested in following this project? Join the Discord! https://discord.gg/R3VDr
 
 - [x] Initial HTML5 Canvas setup
 - [x] Initial multiplayer setup
-- [ ] Camera that follows the player
-- [ ] Larger maps
 - [ ] Make the game logic server-sided
-- [ ] Setup PostgreSQL DB + `users` table created
+- [ ] Setup PostgreSQL DB
 - [ ] Login / registration system
+- [ ] Views
+  - [ ] Login screen
+  - [ ] Lobby
+  - [ ] Game room
 - [ ] Gameplay
-  - [ ] Maps
-  - [ ] Camera follows the player
+  - [ ] :hourglass_flowing_sand: Larger maps
+  - [x] Camera follows the player
 - [ ] Combat system
   - [ ] Picking up weapons from the ground
   - [x] Collision detection
+    - Needs a bit of improvement
   - [x] Hitpoints
     - [x] Death animations
   - [ ] Weapon: Fists
@@ -38,18 +41,16 @@ Interested in following this project? Join the Discord! https://discord.gg/R3VDr
   - [ ] Weapon: Flamethrower
   - [ ] Weapon: Rail Gun
 - [ ] Game logic
-  - [ ] Battle room creation
-  - [ ] 10 minute timer for the room
-  - [ ] Game matching
-    - Ex: If there's an open game with 3 out of 4 players and someone wants to join, add them to that game
+  - [ ] Room creation
+  - [ ] 5 minute timer for the room
   - [ ] Quick Play support
     - This will likely mean that there needs to be support for unregistered users
   - [ ] Player disconnections in the middle of a game
     - Ideally there should be a system in place to discourage this from happening
 - [ ] Creds
-- [ ] Security: Validate bounds of player positions
 - [ ] Cosmetic: Spinners
 - [ ] Cosmetic: Pets
+- [ ] Cosmetic: Shop to buy spinners and pets with creds
 - [ ] Game mode: Capture The Flag
 - [ ] Game mode: Team Deathmatch
 - [ ] Game mode: PvE / Zombies
