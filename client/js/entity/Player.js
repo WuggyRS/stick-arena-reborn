@@ -148,17 +148,33 @@ class Player {
   }
 
   move(speedX, speedY = null, legRotation = 0) {
-    if (speedX != null) {
-      const newX = this.body.x + speedX;
-      if (newX < 0 || newX > 960) return;
+    let newTileX;
+    let newTileY;
 
+    this.x = this.body.x;
+    this.y = this.body.y;
+
+    if (speedX != null) {
+      newTileX = Math.floor((this.x + speedX) / 50);
+    } else {
+      newTileX = Math.floor(this.x / 50);
+    }
+
+    if (speedY != null) {
+      newTileY = Math.floor((this.y + speedY) / 50);
+    } else {
+      newTileY = Math.floor(this.y / 50);
+    }
+
+    if (Constants.TILE_OBSTACLES[newTileY * 35 + newTileX] === 1) {
+      return;
+    }
+
+    if (speedX != null) {
       this.body.setVelocityX(speedX);
     }
 
     if (speedY != null) {
-      const newY = this.body.y + speedY;
-      if (newY < 0 || newY > 720) return;
-
       this.body.setVelocityY(speedY);
     }
 
