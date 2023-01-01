@@ -1,7 +1,7 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-const scaleFactor = 1;
+const scaleFactor = Math.min(canvas.width / 800, canvas.height / 600);
 
 const tilemap = Constants.TILEMAP;
 
@@ -37,7 +37,7 @@ function drawHealthBar() {
   const health = playerManager.mainPlayer.health;
 
   ctx.save();
-  ctx.translate(camera.x, camera.y);
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
   playerManager.mainPlayer.healthbarHeart.draw(ctx);
   ctx.fillStyle = 'red';
   ctx.fillRect(x, y, health, height);
@@ -55,12 +55,12 @@ function update() {
 }
 
 function draw() {
-  ctx.setTransform(scaleFactor, 0, 0, scaleFactor, 0, 0);
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.translate(-camera.x, -camera.y);
-  ctx.save();
-  drawMap();
+  ctx.scale(scaleFactor, scaleFactor);
 
+  drawMap();
   drawHUD();
 
   playerManager.drawPlayers(ctx);

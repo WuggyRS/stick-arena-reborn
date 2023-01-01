@@ -5,8 +5,8 @@ class Camera {
   }
   
   setPos(player) {
-    this.x = player.x - canvas.width / 2;
-    this.y = player.y - canvas.height / 2;
+    this.x = (player.x * scaleFactor) - canvas.width / 2;
+    this.y = (player.y * scaleFactor) - canvas.height / 2;
   }
 }
 
