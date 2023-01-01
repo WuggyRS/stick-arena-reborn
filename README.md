@@ -19,8 +19,10 @@ Interested in following this project? Join the Discord! https://discord.gg/R3VDr
   - [ ] Lobby
   - [ ] Game room
 - [ ] Gameplay
-  - [ ] :hourglass_flowing_sand: Larger maps
+  - [x] Larger maps
+    - [ ] Add all the other maps
   - [x] Camera follows the player
+    - [ ] Zoom in
 - [ ] Combat system
   - [ ] Picking up weapons from the ground
   - [x] Collision detection
