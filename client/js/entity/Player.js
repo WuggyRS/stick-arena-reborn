@@ -113,6 +113,7 @@ class Player {
     for (const playerId in otherPlayers) {
       const otherPlayer = otherPlayers[playerId];
       if (otherPlayer.isMainPlayer) continue;
+      if (Physics.checkForObstacles(playerPos, otherPlayer.getPosition())) continue;
       if (Physics.isCircleCollidingRect(otherPlayer.getPosition(), hitboxRegion)) {
         socketManager.emit("playerHit", { playerId: playerId });
       }

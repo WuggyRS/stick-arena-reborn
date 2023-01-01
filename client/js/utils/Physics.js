@@ -48,4 +48,41 @@ class Physics {
       y: y - spriteCenter.x * Math.sin(rotation) - spriteCenter.y * Math.cos(rotation)
     }
   }
+
+  static checkForObstacles(playerPos, targetPlayerPos) {
+    // Calculate distance between players
+    const xDistance = targetPlayerPos.x - playerPos.x;
+    const yDistance = targetPlayerPos.y - playerPos.y;
+    const totalDistance = Math.sqrt(xDistance ** 2 + yDistance ** 2);
+
+    // Calculate number of tiles between players
+    const numTiles = totalDistance / 50;
+
+    // Calculate x and y increments for each tile
+    const xIncrement = xDistance / numTiles;
+    const yIncrement = yDistance / numTiles;
+
+    // Initialize variables for loop
+    let currentX = playerPos.x;
+    let currentY = playerPos.y;
+
+    // Iterate through tiles between players
+    for (let i = 0; i < numTiles; i++) {
+      // Convert current position to tile index
+      const tileX = Math.floor(currentX / 50);
+      const tileY = Math.floor(currentY / 50);
+      const tileIndex = tileX + tileY * 35;
+
+      // Check if tile is an obstacle
+      if (Constants.TILE_OBSTACLES[tileIndex] == 1) {
+        return true;
+      }
+
+      // Update current position
+      currentX += xIncrement;
+      currentY += yIncrement;
+    }
+
+    return false;
+  }
 }
