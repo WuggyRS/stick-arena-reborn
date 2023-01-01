@@ -5,7 +5,7 @@ Interested in following this project? Join the Discord! https://discord.gg/R3VDr
 
 ## Demo
 
-![Multiplayer](https://user-images.githubusercontent.com/52111974/210126083-f428a5f3-af09-41e9-b52f-372e33c34777.gif)
+![Multiplayer](https://user-images.githubusercontent.com/52111974/210186327-da458981-d3d4-469b-9de0-df20070fba4a.gif)
 
 ## Roadmap
 
@@ -22,7 +22,7 @@ Interested in following this project? Join the Discord! https://discord.gg/R3VDr
   - [x] Larger maps
     - [ ] Add all the other maps
   - [x] Camera follows the player
-    - [ ] Zoom in
+    - [x] Zoom in
 - [ ] Combat system
   - [ ] Picking up weapons from the ground
   - [x] Collision detection
