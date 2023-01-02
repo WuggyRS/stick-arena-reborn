@@ -16,6 +16,8 @@ function keyDownHandler(event) {
     keys.d = true;
   } else if (event.key == "Tab") {
     event.preventDefault();
+  } else if (event.key == " ") {
+    playerManager.mainPlayer.shoot();
   }
 }
 
