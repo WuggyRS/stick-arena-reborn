@@ -6,30 +6,32 @@ let keys = {
 };
 
 function keyDownHandler(event) {
-  if (event.key == "w") {
+  const pressedKey = event.key.toLowerCase();
+  if (pressedKey == "w") {
     keys.w = true;
-  } else if (event.key == "a") {
+  } else if (pressedKey == "a") {
     keys.a = true;
-  } else if (event.key == "s") {
+  } else if (pressedKey == "s") {
     keys.s = true;
-  } else if (event.key == "d") {
+  } else if (pressedKey == "d") {
     keys.d = true;
-  } else if (event.key == "Tab") {
+  } else if (pressedKey == "tab") {
     event.preventDefault();
-  } else if (event.key == " ") {
+  } else if (pressedKey == " ") {
     if (!playerManager.mainPlayer.canShoot || playerManager.mainPlayer.isRespawning) return;
     playerManager.mainPlayer.shoot();
   }
 }
 
 function keyUpHandler(event) {
-  if (event.key == "w") {
+  const pressedKey = event.key.toLowerCase();
+  if (pressedKey == "w") {
     keys.w = false;
-  } else if (event.key == "a") {
+  } else if (pressedKey == "a") {
     keys.a = false;
-  } else if (event.key == "s") {
+  } else if (pressedKey == "s") {
     keys.s = false;
-  } else if (event.key == "d") {
+  } else if (pressedKey == "d") {
     keys.d = false;
   }
 }
