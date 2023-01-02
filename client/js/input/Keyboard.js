@@ -17,6 +17,7 @@ function keyDownHandler(event) {
   } else if (event.key == "Tab") {
     event.preventDefault();
   } else if (event.key == " ") {
+    if (!playerManager.mainPlayer.canShoot || playerManager.mainPlayer.isRespawning) return;
     playerManager.mainPlayer.shoot();
   }
 }
