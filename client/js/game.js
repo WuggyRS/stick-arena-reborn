@@ -1,7 +1,7 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-const scaleFactor = Math.min(canvas.width / 800, canvas.height / 600);
+let scaleFactor = Math.min(canvas.width / 800, canvas.height / 600);
 
 const tilemap = Constants.TILEMAP;
 
@@ -88,6 +88,16 @@ document.addEventListener("keyup", keyUpHandler, false);
 document.addEventListener("blur", onBlurHandler)
 canvas.addEventListener("mousemove", mouseMoveHandler, false);
 canvas.addEventListener("mousedown", onMouseDown);
+
+const observer = new MutationObserver((mutations) => {
+  mutations.forEach((mutation) => {
+    if (mutation.attributeName === "width" || mutation.attributeName === "height") {
+      scaleFactor = Math.min(canvas.width / 800, canvas.height / 600);
+    }
+  });
+});
+
+observer.observe(canvas, { attributes: true });
 
 playerManager.createMainPlayer();
 
