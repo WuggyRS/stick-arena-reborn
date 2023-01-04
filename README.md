@@ -1,8 +1,6 @@
 # stick-arena-reborn
 A HTML5 remake of the Flash game Stick Arena
 
-Interested in following this project? Join the Discord! https://discord.gg/R3VDrpVnX9
-
 ## Demo
 
 ![Multiplayer](https://user-images.githubusercontent.com/52111974/210186327-da458981-d3d4-469b-9de0-df20070fba4a.gif)
@@ -18,6 +16,8 @@ Interested in following this project? Join the Discord! https://discord.gg/R3VDr
   - [ ] Login screen
   - [ ] Lobby
   - [ ] Game room
+- [ ] Sounds
+  - [ ] An option to mute / unmute the sounds
 - [ ] Gameplay
   - [x] Larger maps
     - [ ] Add all the other maps
