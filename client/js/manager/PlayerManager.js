@@ -56,11 +56,11 @@ class PlayerManager {
   }
 
   drawPlayers(ctx) {
-    this.mainPlayer.draw(ctx);
-
     for (const id in this.players) {
       this.players[id].draw(ctx);
     }
+
+    this.mainPlayer.draw(ctx);
   }
 }
 
