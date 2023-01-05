@@ -49,13 +49,13 @@ function keyEvents() {
   if (playerManager.mainPlayer.isRespawning) return;
 
   if (keys.w && keys.d) {
-    playerManager.mainPlayer.move(Constants.SPEED, -Constants.SPEED, 45);
+    playerManager.mainPlayer.move(Constants.SPEED / 1.25, -Constants.SPEED / 1.25, 45);
   } else if (keys.w && keys.a) {
-    playerManager.mainPlayer.move(-Constants.SPEED, -Constants.SPEED, 135);
+    playerManager.mainPlayer.move(-Constants.SPEED / 1.25, -Constants.SPEED / 1.25, 135);
   } else if (keys.s && keys.d) {
-    playerManager.mainPlayer.move(Constants.SPEED, Constants.SPEED, -45);
+    playerManager.mainPlayer.move(Constants.SPEED / 1.25, Constants.SPEED / 1.25, -45);
   } else if (keys.s && keys.a) {
-    playerManager.mainPlayer.move(-Constants.SPEED, Constants.SPEED, -315);
+    playerManager.mainPlayer.move(-Constants.SPEED / 1.25, Constants.SPEED / 1.25, -315);
   } else if (keys.w) {
     playerManager.mainPlayer.move(null, -Constants.SPEED, 0);
   } else if (keys.a) {
