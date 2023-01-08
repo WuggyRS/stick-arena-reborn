@@ -147,6 +147,10 @@ class Player {
     this.canMove = false;
     this.legs.setPosition(this.body.x, this.body.y);
     this.legs.setRotation(legRotation * Constants.TO_RADIANS);
+
+    if (!this.canMove && this.body.spritesheetData.spritesheetName === "glock-stance") {
+      this.body.swapSpritesheet("glock-walk", 1);
+    }
   }
 
   move(speedX, speedY = null, legRotation = 0) {
