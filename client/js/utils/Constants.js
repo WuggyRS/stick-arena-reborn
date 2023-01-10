@@ -4,7 +4,7 @@ class Constants {
   }
 
   static get STICK_FIGURE_HEAD_RADIUS() {
-    return 15;
+    return 17;
   }
 
   static get TO_RADIANS() {
@@ -12,10 +12,6 @@ class Constants {
   }
 
   static get PLAYER_SPAWN_POINTS() {
-    if (this.DEBUG) {
-      return [{ x: 550, y: 100 }];
-    }
-
     return [
       { x: 550, y: 100 }, { x: 1550, y: 950 },
       { x: 1550, y: 150 }, { x: 150, y: 950 }
