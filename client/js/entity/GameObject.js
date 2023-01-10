@@ -33,27 +33,19 @@ class GameObject {
   }
 
   resetAnimationRepeat(numTimes) {
-    if (this.spritesheetData.isShootingAnimation) {
-      this.frameIndex = -1;
-    } else {
-      this.frameIndex = 0;
-    }
+    this.frameIndex = -1;
     this.repeatTimes = numTimes;
   }
 
   swapSpritesheet(spritesheetName, repeatNumTimes = -1) {
     this.spritesheetData = spritesheetManager.getSpritesheet(spritesheetName);
 
-    if (repeatNumTimes === -9999) {
-      this.resetAnimationRepeat(-1);
-    } else if (repeatNumTimes > 0) {
+    if (repeatNumTimes > 0)
       this.resetAnimationRepeat(repeatNumTimes);
-    }
   }
 
   resetAnimation() {
     this.swapSpritesheet(this.spritesheetSnapshot);
-    this.repeatTimes = -1;
   }
 
   update() {

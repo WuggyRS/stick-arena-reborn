@@ -73,14 +73,6 @@ class Constants {
         numberOfFrames: 12,
         spriteCenter: { x: 28, y: 36 }
       },
-      "glock-walk": {
-        spritesheetUrl: "sprites/glock/glock-walk.png",
-        width: 41,
-        height: 35,
-        fps: 18,
-        numberOfFrames: 18,
-        spriteCenter: { x: 13, y: 21 }
-      },
       "death": {
         spritesheetUrl: "sprites/player/death.png",
         width: 110,
