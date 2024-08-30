@@ -1,6 +1,10 @@
 # stick-arena-reborn
 A HTML5 remake of the Flash game Stick Arena
 
+Note: This repo has been abandoned by now. I've started another project called Mafia Divided which is basically accomplishing this except with original assets and themes.
+
+You can come check it out at https://mafiadivided.io and join the Discord server https://discord.gg/XmZfe5dqdk
+
 ## Demo
 
 ![Multiplayer](https://user-images.githubusercontent.com/52111974/210186327-da458981-d3d4-469b-9de0-df20070fba4a.gif)
