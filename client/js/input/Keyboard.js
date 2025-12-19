@@ -7,32 +7,35 @@ let keys = {
 
 function keyDownHandler(event) {
   const pressedKey = event.key.toLowerCase();
-  if (pressedKey == "w") {
-    keys.w = true;
-  } else if (pressedKey == "a") {
-    keys.a = true;
-  } else if (pressedKey == "s") {
-    keys.s = true;
-  } else if (pressedKey == "d") {
-    keys.d = true;
-  } else if (pressedKey == "tab") {
-    event.preventDefault();
-  } else if (pressedKey == " ") {
-    if (!playerManager.mainPlayer.canShoot || playerManager.mainPlayer.isRespawning) return;
-    playerManager.mainPlayer.shoot();
+
+  if (currentState === GAME_STATES.MENU) {
+    if (pressedKey === "enter") {
+      initializeGame();
+      currentState = GAME_STATES.IN_GAME; // Transition to gameplay
+    } else if (pressedKey === "h") {
+      alert("Help:\n- Use WASD to move\n- Mouse to aim\n- Space or Click to shoot");
+    }
+  } else if (currentState === GAME_STATES.IN_GAME) {
+    // Handle game-related input here (e.g., movement/shooting)
+    if (pressedKey === "w") keys.w = true;
+    else if (pressedKey === "s") keys.s = true;
+    else if (pressedKey === "a") keys.a = true;
+    else if (pressedKey === "d") keys.d = true;
+    else if (pressedKey === " ") {
+      if (!playerManager.mainPlayer.canShoot || playerManager.mainPlayer.isRespawning) return;
+      playerManager.mainPlayer.shoot();
+    }
   }
 }
 
 function keyUpHandler(event) {
   const pressedKey = event.key.toLowerCase();
-  if (pressedKey == "w") {
-    keys.w = false;
-  } else if (pressedKey == "a") {
-    keys.a = false;
-  } else if (pressedKey == "s") {
-    keys.s = false;
-  } else if (pressedKey == "d") {
-    keys.d = false;
+
+  if (currentState === GAME_STATES.IN_GAME) {
+    if (pressedKey === "w") keys.w = false;
+    else if (pressedKey === "s") keys.s = false;
+    else if (pressedKey === "a") keys.a = false;
+    else if (pressedKey === "d") keys.d = false;
   }
 }
 

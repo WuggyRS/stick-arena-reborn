@@ -10,6 +10,34 @@ gameMap.src = "sprites/maps/open-space.png";
 
 let tiles = {};
 
+const GAME_STATES = {
+  MENU: "menu",
+  IN_GAME: "in_game",
+};
+
+let currentState = GAME_STATES.MENU;
+
+function drawMenu() {
+  ctx.setTransform(1, 0, 0, 1, 0, 0); // Reset canvas transformations
+  ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the entire canvas
+
+  ctx.fillStyle = "black"; // Menu background
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = "white"; // Text color
+  ctx.font = "48px Arial";
+  ctx.textAlign = "center";
+
+  // Title
+  ctx.fillText("The Finals Ballistic (version 0.1)", canvas.width / 2, canvas.height / 3);
+
+  // Options
+  ctx.font = "32px Arial";
+  ctx.fillText("Press 'Enter' to Start", canvas.width / 2, canvas.height / 2);
+  ctx.fillText("Press 'H' for Help", canvas.width / 2, canvas.height / 2 + 50);
+}
+
+
 function drawMap() {
   const tileSize = 50;
   const mapWidth = 35;
@@ -67,9 +95,14 @@ function draw() {
 }
 
 function loop() {
-  update();
-  draw();
-  keyEvents();
+  if (currentState === GAME_STATES.MENU) {
+    drawMenu();
+  } else if (currentState === GAME_STATES.IN_GAME) {
+    update();
+    draw();
+    keyEvents();
+  }
+
   requestAnimationFrame(loop);
 }
 
@@ -81,6 +114,12 @@ function loadTiles() {
     tileImg.src = `sprites/maps/xgenhq/${rawTile}.png`;
     tiles[rawTile] = tileImg;
   }
+}
+
+function initializeGame() {
+  // Called when transitioning to GAME_STATES.IN_GAME
+  playerManager.createMainPlayer();
+  loadTiles();
 }
 
 document.addEventListener("keydown", keyDownHandler, false);
@@ -98,8 +137,4 @@ const observer = new MutationObserver((mutations) => {
 });
 
 observer.observe(canvas, { attributes: true });
-
-playerManager.createMainPlayer();
-
-loadTiles();
 loop();
